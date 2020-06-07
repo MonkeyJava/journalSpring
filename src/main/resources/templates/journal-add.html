@@ -1,0 +1,27 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Блог сайта</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+</head>
+<body>
+<header th:insert="blocks/header :: header"/>
+<div class="container mt-5 mb-5">
+    <h1>Журнал</h1>
+     <h1>Добавление записи</h1>
+     <form action="/journal/add" method="post">
+         <input type="text" name="orders" placeholder="Введите заказ" class="form-control"><br>
+         <input type="text" name="product_name" placeholder="Введите название изделия" class="form-control"><br>
+         <input type="text" name="type_of_test" placeholder="Введите тип испытания" class="form-control"><br>
+         <input type="number" name="quantity" placeholder="Введите количество" class="form-control"><br>
+         <input type="text" name="testers_name" placeholder="Введите фио испытателя" class="form-control"><br>
+         <input type="date" name="date" placeholder="Введите дату" class="form-control"><br>
+         <textarea name="note" placeholder="Введите примечание" class="form-control"></textarea><br>
+         <button type="submit" class="btn btn-success">Добавить запись</button>
+     </form>
+    </div>
+</div>
+<div th:insert="blocks/footer :: footer"></div>
+</body>
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Блог сайта</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+</head>
+<body>
+<header th:insert="blocks/header :: header"/>
+<div class="container mt-5">
+    <div th:each="el : ${entry}" class="alert alert-info mt-2">
+        <h5 th:text="${el.orders}"/>
+        <h5 th:text="${el.product_name}"/>
+        <h5 th:text="${el.type_of_test}"/>
+        <h5 th:text="${el.quantity}"/>
+        <h5 th:text="${el.testers_name}"/>
+        <h5 th:text="${el.date}"/>
+        <h5 th:text="${el.note}"/>
+        <a th:href="'/journal/' + ${el.id} + '/edit'" class="btn btn-warning">Редактировать</a><br><br>
+        <form th:action="'/journal/' + ${el.id} + '/remove'" method="post">
+            <button class="btn btn-warning" type="submit">Удалить</button>
+        </form>
+    </div>
+</div>
+
+<div th:insert="blocks/footer :: footer"></div>
+</body>
+</html>
